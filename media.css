@@ -1,0 +1,13 @@
+@media (min-width: 1440px) {
+    header {
+        background-size:cover
+    }
+    
+}
+@media (max-width: 47em) {
+    .container {
+        margin: -5.5em 1em;
+        width: auto
+    }
+    
+}

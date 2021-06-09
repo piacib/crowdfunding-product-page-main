@@ -1,29 +1,31 @@
-const addAndRemoveClass = (id,addedClass, removedClass) => {
+const showElement = (id,addedClass, removedClass) => {
     return (e) => {
-        console.log(document.getElementById(id).classList.contains(addedClass))
-        if (document.getElementById(id).classList.contains(addedClass)) {
-            document.getElementById(id).classList.add(removedClass);
-            document.getElementById(id).classList.remove(addedClass);
-        }    
-        else {
+        
             document.getElementById(id).classList.add(addedClass);
             document.getElementById(id).classList.remove(removedClass);
-
-        }
     }   
 }
-const displayNone = (id) => {
+const hideElement = (id,addedClass, removedClass) => {
     return (e) => {
-        document.getElementById(id).style.display =  'none'
-    }
-}
+    document.getElementById(id).classList.add(removedClass);
+    document.getElementById(id).classList.remove(addedClass);
+}}
 
-document.getElementById("bamboo__stand__reward").addEventListener(
+
+document.getElementById("black__edition__stand__button").addEventListener(
     "click", 
-    addAndRemoveClass('donation__modal','modal__completed','modal__not__completed')
-    );
+    showElement('donation__modal__container','modal__completed','modal__not__completed')
+);
+document.getElementById("bamboo__stand__reward__button").addEventListener(
+    "click", 
+    showElement('donation__modal__container','modal__completed','modal__not__completed')
+);
 document.getElementById("got__it").addEventListener(
     "click", 
-    addAndRemoveClass('donation__modal','modal__completed','modal__not__completed')
-
+    hideElement('donation__modal__container','modal__completed','modal__not__completed')
     );
+document.getElementById("donation__modal__container").addEventListener(
+    "click", 
+    hideElement('donation__modal__container','modal__completed','modal__not__completed')
+    );
+            
